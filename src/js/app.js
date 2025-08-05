@@ -14,7 +14,6 @@ const app = {
       .catch(error => console.error('Error fetching products:', error));
   },
 
-
   renderProducts: function () {
     const templateSource = document.getElementById('products-partial').innerHTML;
     const template = Handlebars.compile(templateSource);
@@ -64,4 +63,3 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize the app
   app.init();
 });
-
