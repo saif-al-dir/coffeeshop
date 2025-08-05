@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Coffee Shop</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,300i,700%7COswald:300,500,700&amp;subset=latin-ext" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navbar (Fixed) -->
+    <nav class="navbar navbar-expand-lg navbar-dark w-100 position-absolute top-0">
+        <div class="container">
+            <a class="navbar-brand" href="#">EL TIGRE</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto text-end">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section (Fixed) -->
+    <header class="header-section position-relative text-white text-center">
+        <img src="images/background.png" class="img-fluid w-100" alt="Background coffee image">
+        <div class="overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center">
+
+                <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-dark w-100 position-absolute top-0">
+                <div class="container">
+                    <a class="navbar-brand" href="#">EL TIGRE</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto text-end">
+                            <li class="nav-item"><a class="nav-link" href="#home" id="home-btn">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#products" id="products-btn">Products</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#contact" id="contact-btn">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <h1>EL TIGRE</h1>
+            <h2>HOME OF ORIGINAL TASTES</h2>
+            <button class="btn btn-outline-light btn-discover" type="button">DISCOVER<i class="fas fa-arrow-down"></i></button>
+        </div>
+    </header>
+
+<!-- Dynamic Content Container -->
+<div id="app"></div>
+
+
+<!-- Handlebars Templates -->
+<script id="home-template" type="text/x-handlebars-template">
+    {{> products }}
+        
+    {{#if showAbout}}
+        {{> about }}
+    {{/if}}
+</script>
+
+<script id="products-template" type="text/x-handlebars-template">
+    <div class="container">
+        {{> products }}
+    </div>
+</script>
+
+<script id="products-partial" type="text/x-handlebars-template">  
+    <!-- Products Section -->
+    <section id="products" class="products-section text-center py-5">
+        <h2 class="text-uppercase text-warning">PRODUCTS</h2>
+        <div class="underline mb-4"></div>
+        <div class="container">
+            {{#each products}}
+            <div class="row align-items-center mb-4 {{#isOdd @index}}flex-row-reverse{{/isOdd}}">
+                <div class="col-md-6">
+                    <img src="{{image}}" class="img-fluid rounded" alt="{{title}}">
+                </div>
+                <div class="col-md-6 text-md-start">
+                    <h3>{{title}}</h3>
+                    <p>{{description}}</p>
+                    <p>ROASTING: <strong>{{roasting}}/10</strong></p>
+                    <p>INTENSITY: <strong>{{intensity}}/10</strong></p>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </section>
+</script>
+
+<script id="about-template" type="text/x-handlebars-template">
+    <!-- About Us Section -->
+    <section class="about-section">
+        <img src="images/about-us.jpg" class="img-fluid w-100" alt="Background image of coffee roasting">
+        <div class="about-content">
+            <h2>ABOUT US</h2>
+            <p>Who are we? Just a bunch of friends with a love for a good coffee and desire to create something new, something original.</p>
+            <p>Our coffees reflect us – young, wild and free. We are on the journey of new tastes...</p>
+            <p class="font-weight-bold text-end">Join us!</p>
+        </div>
+    </section>
+</script>
+
+<script id="contact-template" type="text/x-handlebars-template">
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section py-5 text-center">
+        <h2 class="text-uppercase text-warning">CONTACT US</h2>
+        <div class="underline mb-4"></div>
+        <div class="container">
+            <form>
+                <div class="mb-3">
+                    <input type="text" class="form-control" placeholder="NAME">
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" placeholder="TITLE">
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control" placeholder="MESSAGE"></textarea>
+                </div>
+                <button class="btn btn-warning">SUBMIT</button>
+            </form>
+        </div>
+    </section>
+</script>
+
+<!-- Footer (Fixed) -->
+<footer class="footer">
+    <p>© 2025 EL TIGRE Inc.</p>
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
+    <script src="js/app.js" type="module"></script>
+
+</body>
+</html>

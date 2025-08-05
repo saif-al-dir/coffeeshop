@@ -1,0 +1,28 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "La Lagartija",
+      "description": "Mysterious and treacherous... A rich delicious flavor.",
+      "image": "images/coffee-1.png",
+      "roasting": 4,
+      "intensity": 6
+    },
+    {
+      "id": 2,
+      "title": "El Tigre",
+      "description": "Dark coffee for the real gourmet, mixed with caramel.",
+      "image": "images/coffee-2.png",
+      "roasting": 8,
+      "intensity": 9
+    },
+    {
+      "id": 3,
+      "title": "La Cucaracha",
+      "description": "Sweet and intense with a hint of different flavors.",
+      "image": "images/coffee-3.png",
+      "roasting": 3,
+      "intensity": 7
+    }
+  ]
+}
